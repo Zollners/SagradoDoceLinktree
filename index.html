@@ -3,134 +3,402 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sagrado Doce | Links</title>
+    <title>Sagrado Doce | Links & Encomendas</title>
+    <!-- Fontes do Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Ícones do FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
+        :root {
+            --primary-royal: #0046ad;
+            --primary-hover: #003380;
+            --primary-gradient: linear-gradient(135deg, #0052cc 0%, #002b80 100%);
+            --accent-blue: #e8f0fe;
+            --text-dark: #0f172a;
+            --text-muted: #475569;
+            --white: #ffffff;
+            --card-bg: rgba(255, 255, 255, 0.92);
+            --shadow-soft: 0 10px 25px -5px rgba(0, 70, 173, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            -webkit-tap-highlight-color: transparent;
         }
 
         body {
-            background-color: #fffaf0; /* Cor de fundo suave (pode alterar) */
-            color: #4a3b32;
+            background: #f4f7fc;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(0, 70, 173, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(0, 70, 173, 0.06) 0%, transparent 40%);
+            color: var(--text-dark);
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
             min-height: 100vh;
-            padding: 20px;
+            padding: 30px 16px;
         }
 
         .container {
             width: 100%;
-            max-width: 400px;
+            max-width: 420px;
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Foto de Perfil / Logo */
+        .logo-wrapper {
+            position: relative;
+            margin-bottom: 16px;
         }
 
         .logo {
-            width: 120px;
-            height: 120px;
+            width: 110px;
+            height: 110px;
             border-radius: 50%;
             object-fit: cover;
-            margin-bottom: 15px;
-            border: 3px solid #d4a373;
+            border: 4px solid var(--white);
+            box-shadow: 0 8px 20px rgba(0, 70, 173, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .logo-wrapper:hover .logo {
+            transform: scale(1.03);
+        }
+
+        /* Badge de Status / Horário */
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--white);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+            margin-bottom: 12px;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #10b981; /* Verde */
+            border-radius: 50%;
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
         }
 
         h1 {
-            font-size: 1.5rem;
-            margin-bottom: 5px;
-            color: #6b4226;
+            font-size: 1.65rem;
+            font-weight: 700;
+            color: var(--primary-royal);
+            margin-bottom: 6px;
+            letter-spacing: -0.5px;
         }
 
         p.bio {
-            font-size: 0.9rem;
-            margin-bottom: 25px;
-            color: #8c5a3c;
+            font-size: 0.92rem;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+            line-height: 1.4;
+            padding: 0 10px;
         }
 
+        /* Lista de Botões */
         .links-container {
+            width: 100%;
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 14px;
         }
 
         .btn-link {
+            position: relative;
             display: flex;
             align-items: center;
-            justify-content: center;
-            padding: 14px 20px;
-            background-color: #ffffff;
-            color: #5c3a21;
+            justify-content: space-between;
+            padding: 16px 20px;
+            background: var(--white);
+            color: var(--text-dark);
             text-decoration: none;
             font-weight: 600;
-            font-size: 1rem;
-            border-radius: 30px;
-            border: 2px solid #e6ccb2;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
+            font-size: 0.98rem;
+            border-radius: 18px;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid rgba(0, 70, 173, 0.08);
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+        }
+
+        .btn-link .btn-content {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .btn-link i.icon-left {
+            font-size: 1.25rem;
+            color: var(--primary-royal);
+            width: 24px;
+            text-align: center;
+        }
+
+        .btn-link i.icon-arrow {
+            font-size: 0.85rem;
+            color: #cbd5e1;
+            transition: transform 0.25s ease, color 0.25s ease;
         }
 
         .btn-link:hover {
-            background-color: #e6ccb2;
-            color: #fff;
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            box-shadow: 0 14px 28px -5px rgba(0, 70, 173, 0.18);
+            border-color: rgba(0, 70, 173, 0.2);
         }
 
-        /* Destaque especial para o Cardápio / WhatsApp */
+        .btn-link:hover i.icon-arrow {
+            transform: translateX(4px);
+            color: var(--primary-royal);
+        }
+
+        /* Destaque Principal (Cardápio / Pedidos) */
         .btn-link.destaque {
-            background-color: #dda15e;
-            color: #ffffff;
+            background: var(--primary-gradient);
+            color: var(--white);
             border: none;
         }
 
-        .btn-link.destaque:hover {
-            background-color: #bc6c25;
+        .btn-link.destaque i.icon-left,
+        .btn-link.destaque i.icon-arrow {
+            color: var(--white);
         }
 
-        footer {
-            margin-top: 30px;
+        .btn-link.destaque:hover {
+            opacity: 0.96;
+        }
+
+        /* Card Informativo (Avisos de Encomenda) */
+        .info-card {
+            background: rgba(0, 70, 173, 0.04);
+            border: 1px dashed rgba(0, 70, 173, 0.25);
+            border-radius: 16px;
+            padding: 14px 16px;
+            margin-top: 6px;
+            font-size: 0.85rem;
+            color: var(--primary-royal);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-align: left;
+        }
+
+        .info-card i {
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        /* Modal / Caixa Pix Prática */
+        .pix-box {
+            width: 100%;
+            background: var(--white);
+            border-radius: 18px;
+            padding: 16px 20px;
+            box-shadow: var(--shadow-soft);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border: 1px solid rgba(0, 70, 173, 0.08);
+            margin-top: 4px;
+        }
+
+        .pix-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-align: left;
+        }
+
+        .pix-info i {
+            font-size: 1.3rem;
+            color: #00bdae; /* Cor clássica do Pix */
+        }
+
+        .pix-text span {
+            display: block;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .pix-text strong {
+            font-size: 0.88rem;
+            color: var(--text-dark);
+        }
+
+        .btn-copy {
+            background: var(--accent-blue);
+            color: var(--primary-royal);
+            border: none;
+            padding: 8px 14px;
+            border-radius: 10px;
+            font-weight: 700;
             font-size: 0.8rem;
-            color: #a38f85;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .btn-copy:hover {
+            background: #d0e1fd;
+        }
+
+        /* Rodapé com Formas de Pagamento */
+        footer {
+            margin-top: 32px;
+            padding-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .payments {
+            display: flex;
+            gap: 14px;
+            font-size: 1.2rem;
+            color: #94a3b8;
+        }
+
+        .copyright {
+            font-size: 0.78rem;
+            color: #94a3b8;
+            font-weight: 500;
+        }
+
+        @media (max-width: 360px) {
+            body { padding: 20px 12px; }
+            .btn-link { padding: 14px 16px; font-size: 0.9rem; }
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <!-- Substitua pelo link da imagem da sua logo -->
-        <img src="logo.png" alt="Sagrado Doce Logo" class="logo">
         
-        <h1>Sagrado Doce</h1>
-        <p class="bio">Adoçando seus momentos mais especiais 🍰✨</p>
-
-        <div class="links-container">
-            <!-- Link do Cardápio -->
-            <a href="HTTPS_DO_SEU_CARDAPIO" target="_blank" class="btn-link destaque">
-                📖 Cardápio Digital & Encomendas
-            </a>
-
-            <!-- Link do WhatsApp -->
-            <a href="https://wa.me/55SEUNUMEROAQUI?text=Olá!%20Gostaria%20de%20fazer%20um%20pedido." target="_blank" class="btn-link">
-                💬 Fazer Pedido no WhatsApp
-            </a>
-
-            <!-- Link do Instagram -->
-            <a href="https://instagram.com/SEU_PERFIL" target="_blank" class="btn-link">
-                📸 Nosso Instagram
-            </a>
-
-            <!-- Outro Link Útil (ex: Localização, iFood, Avaliações) -->
-            <a href="LINK_EXTRA" target="_blank" class="btn-link">
-                📍 Nossa Localização / Como Chegar
-            </a>
+        <!-- Foto de Perfil / Logo -->
+        <div class="logo-wrapper">
+            <img src="logo.jpg" alt="Sagrado Doce Logo" class="logo">
         </div>
 
+        <!-- Status de Atendimento -->
+        <div class="status-badge">
+            <span class="status-dot"></span>
+            Aceitando encomendas para esta semana
+        </div>
+
+        <!-- Título & Bio -->
+        <h1>Sagrado Doce</h1>
+        <p class="bio">Confeitaria Artesanal 🍰<br>Transformando momentos doces em memórias inesquecíveis.</p>
+
+        <!-- Container de Links -->
+        <div class="links-container">
+            
+            <!-- 1. Cardápio Digital (Destaque) -->
+            <a href="LINK_DO_SEU_CARDAPIO" target="_blank" class="btn-link destaque">
+                <div class="btn-content">
+                    <i class="fa-solid fa-book-open icon-left"></i>
+                    <span>Cardápio Digital & Preços</span>
+                </div>
+                <i class="fa-solid fa-chevron-right icon-arrow"></i>
+            </a>
+
+            <!-- 2. Pedidos no WhatsApp -->
+            <a href="https://wa.me/5500000000000?text=Olá!%20Gostaria%20de%20fazer%20um%20pedido%20na%20Sagrado%20Doce." target="_blank" class="btn-link">
+                <div class="btn-content">
+                    <i class="fa-brands fa-whatsapp icon-left" style="color: #25D366;"></i>
+                    <span>Fazer Pedido / WhatsApp</span>
+                </div>
+                <i class="fa-solid fa-chevron-right icon-arrow"></i>
+            </a>
+
+            <!-- 3. Instagram -->
+            <a href="https://instagram.com/SEU_PERFIL" target="_blank" class="btn-link">
+                <div class="btn-content">
+                    <i class="fa-brands fa-instagram icon-left" style="color: #E1306C;"></i>
+                    <span>Siga no Instagram</span>
+                </div>
+                <i class="fa-solid fa-chevron-right icon-arrow"></i>
+            </a>
+
+            <!-- 4. Localização / Retirada -->
+            <a href="LINK_DO_GOOGLE_MAPS" target="_blank" class="btn-link">
+                <div class="btn-content">
+                    <i class="fa-solid fa-location-dot icon-left" style="color: #ea4335;"></i>
+                    <span>Localização para Retiradas</span>
+                </div>
+                <i class="fa-solid fa-chevron-right icon-arrow"></i>
+            </a>
+
+            <!-- Card de Aviso (Antecedência) -->
+            <div class="info-card">
+                <i class="fa-solid fa-clock"></i>
+                <span>Encomendas de bolos decorados com no mínimo <strong>48h de antecedência</strong>.</span>
+            </div>
+
+            <!-- Botão/Caixa de Chave Pix Copia e Cola -->
+            <div class="pix-box">
+                <div class="pix-info">
+                    <i class="fa-solid fa-pix"></i>
+                    <div class="pix-text">
+                        <span>Chave Pix (CNPJ/E-mail)</span>
+                        <strong id="pixKey">suachavepix@email.com</strong>
+                    </div>
+                </div>
+                <button class="btn-copy" onclick="copyPix()">Copiar</button>
+            </div>
+
+        </div>
+
+        <!-- Rodapé -->
         <footer>
-            © Sagrado Doce
+            <div class="payments" title="Formas de Pagamento">
+                <i class="fa-solid fa-pix" title="Pix"></i>
+                <i class="fa-regular fa-credit-card" title="Cartão de Crédito/Débito"></i>
+                <i class="fa-solid fa-money-bill-wave" title="Dinheiro"></i>
+            </div>
+            <div class="copyright">
+                © Sagrado Doce • Todos os direitos reservados
+            </div>
         </footer>
+
     </div>
+
+    <!-- Script para funcionalidade de copiar Pix -->
+    <script>
+        function copyPix() {
+            const pixKey = document.getElementById('pixKey').innerText;
+            navigator.clipboard.writeText(pixKey).then(() => {
+                const btn = document.querySelector('.btn-copy');
+                btn.innerText = 'Copiado!';
+                btn.style.background = '#10b981';
+                btn.style.color = '#ffffff';
+                setTimeout(() => {
+                    btn.innerText = 'Copiar';
+                    btn.style.background = 'var(--accent-blue)';
+                    btn.style.color = 'var(--primary-royal)';
+                }, 2000);
+            });
+        }
+    </script>
 
 </body>
 </html>
