@@ -170,20 +170,30 @@
             color: var(--primary-royal);
         }
 
-        /* Destaque Principal (Cardápio / Pedidos) */
-        .btn-link.destaque {
-            background: var(--primary-gradient);
-            color: var(--white);
-            border: none;
+        /* Botão Desativado / Em Manutenção */
+        .btn-link.disabled {
+            background: #f1f5f9;
+            color: #94a3b8;
+            border-color: #e2e8f0;
+            box-shadow: none;
+            cursor: not-allowed;
+            pointer-events: none;
+            opacity: 0.85;
         }
 
-        .btn-link.destaque i.icon-left,
-        .btn-link.destaque i.icon-arrow {
-            color: var(--white);
+        .btn-link.disabled i.icon-left {
+            color: #64748b;
         }
 
-        .btn-link.destaque:hover {
-            opacity: 0.96;
+        .tag-manutencao {
+            background: #fef3c7;
+            color: #d97706;
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 4px 8px;
+            border-radius: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         /* Card Informativo (Avisos de Encomenda) */
@@ -206,7 +216,7 @@
             flex-shrink: 0;
         }
 
-        /* Modal / Caixa Pix Prática */
+        /* Caixa Pix Prática */
         .pix-box {
             width: 100%;
             background: var(--white);
@@ -229,7 +239,7 @@
 
         .pix-info i {
             font-size: 1.3rem;
-            color: #00bdae; /* Cor clássica do Pix */
+            color: #00bdae;
         }
 
         .pix-text span {
@@ -312,14 +322,14 @@
         <!-- Container de Links -->
         <div class="links-container">
             
-            <!-- 1. Cardápio Digital (Destaque) -->
-            <a href="LINK_DO_SEU_CARDAPIO" target="_blank" class="btn-link destaque">
+            <!-- 1. Cardápio Digital (Em Manutenção) -->
+            <div class="btn-link disabled">
                 <div class="btn-content">
-                    <i class="fa-solid fa-book-open icon-left"></i>
-                    <span>Cardápio Digital & Preços</span>
+                    <i class="fa-solid fa-wrench icon-left"></i>
+                    <span>Cardápio Digital</span>
                 </div>
-                <i class="fa-solid fa-chevron-right icon-arrow"></i>
-            </a>
+                <span class="tag-manutencao">Em Manutenção</span>
+            </div>
 
             <!-- 2. Pedidos no WhatsApp -->
             <a href="https://wa.me/5500000000000?text=Olá!%20Gostaria%20de%20fazer%20um%20pedido%20na%20Sagrado%20Doce." target="_blank" class="btn-link">
@@ -335,15 +345,6 @@
                 <div class="btn-content">
                     <i class="fa-brands fa-instagram icon-left" style="color: #E1306C;"></i>
                     <span>Siga no Instagram</span>
-                </div>
-                <i class="fa-solid fa-chevron-right icon-arrow"></i>
-            </a>
-
-            <!-- 4. Localização / Retirada -->
-            <a href="LINK_DO_GOOGLE_MAPS" target="_blank" class="btn-link">
-                <div class="btn-content">
-                    <i class="fa-solid fa-location-dot icon-left" style="color: #ea4335;"></i>
-                    <span>Localização para Retiradas</span>
                 </div>
                 <i class="fa-solid fa-chevron-right icon-arrow"></i>
             </a>
