@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sagrado Doce | Links</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #fffaf0; /* Cor de fundo suave (pode alterar) */
+            color: #4a3b32;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border: 3px solid #d4a373;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+            color: #6b4226;
+        }
+
+        p.bio {
+            font-size: 0.9rem;
+            margin-bottom: 25px;
+            color: #8c5a3c;
+        }
+
+        .links-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .btn-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 20px;
+            background-color: #ffffff;
+            color: #5c3a21;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            border-radius: 30px;
+            border: 2px solid #e6ccb2;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .btn-link:hover {
+            background-color: #e6ccb2;
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        /* Destaque especial para o Cardápio / WhatsApp */
+        .btn-link.destaque {
+            background-color: #dda15e;
+            color: #ffffff;
+            border: none;
+        }
+
+        .btn-link.destaque:hover {
+            background-color: #bc6c25;
+        }
+
+        footer {
+            margin-top: 30px;
+            font-size: 0.8rem;
+            color: #a38f85;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Substitua pelo link da imagem da sua logo -->
+        <img src="logo.png" alt="Sagrado Doce Logo" class="logo">
+        
+        <h1>Sagrado Doce</h1>
+        <p class="bio">Adoçando seus momentos mais especiais 🍰✨</p>
+
+        <div class="links-container">
+            <!-- Link do Cardápio -->
+            <a href="HTTPS_DO_SEU_CARDAPIO" target="_blank" class="btn-link destaque">
+                📖 Cardápio Digital & Encomendas
+            </a>
+
+            <!-- Link do WhatsApp -->
+            <a href="https://wa.me/55SEUNUMEROAQUI?text=Olá!%20Gostaria%20de%20fazer%20um%20pedido." target="_blank" class="btn-link">
+                💬 Fazer Pedido no WhatsApp
+            </a>
+
+            <!-- Link do Instagram -->
+            <a href="https://instagram.com/SEU_PERFIL" target="_blank" class="btn-link">
+                📸 Nosso Instagram
+            </a>
+
+            <!-- Outro Link Útil (ex: Localização, iFood, Avaliações) -->
+            <a href="LINK_EXTRA" target="_blank" class="btn-link">
+                📍 Nossa Localização / Como Chegar
+            </a>
+        </div>
+
+        <footer>
+            © Sagrado Doce
+        </footer>
+    </div>
+
+</body>
+</html>
